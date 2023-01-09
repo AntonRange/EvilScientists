@@ -1,6 +1,5 @@
-
-const allEvilScientists = document.querySelector(".allscientist")
-const evilScientists = {
+var allEvilScientists = document.querySelector(".allscientist");
+var evilScientists = {
     scientists: [
         {
             name: 'Gandalf',
@@ -33,34 +32,26 @@ const evilScientists = {
             description: 'Max använde sina kunskaper inom virus forskning för att skapa ett virus som gör att alla som blir smittade blev till apor'
         },
     ]
-}
-
+};
 function scientistCards() {
-    let i = 0;
-
+    var i = 0;
     while (i <= (evilScientists.scientists.length - 1)) {
-        
-        const scientistSection = document.createElement("section")
-        scientistSection.tabIndex = `${i}`;
-        scientistSection.className = "evilScientistsCard" 
-        allEvilScientists.appendChild(scientistSection)
-
-        for (const [key, value] of Object.entries(evilScientists.scientists[i])) {
+        var scientistSection = document.createElement("section");
+        scientistSection.tabIndex = i;
+        scientistSection.className = "evilScientistsCard";
+        allEvilScientists.appendChild(scientistSection);
+        for (var _i = 0, _a = Object.keys(evilScientists.scientists[i]); _i < _a.length; _i++) {
+            var key = _a[_i];
+            var test = evilScientists.scientists[i][key];
             if (key === "age") {
                 break;
             }
-
-        const NewPTag = document.createElement("p");
-        
-        NewPTag.innerHTML = `${key}: ${value}`;
-        
-        scientistSection.appendChild(NewPTag)
-
-        console.log(i)
-    }
-    console.log("hej")
+            var NewPTag = document.createElement("p");
+            console.log(key);
+            NewPTag.innerHTML = "".concat(key, ": ").concat(test, " ");
+            scientistSection.appendChild(NewPTag);
+        }
         i++;
+    }
 }
-}
-
-scientistCards()
+scientistCards();
