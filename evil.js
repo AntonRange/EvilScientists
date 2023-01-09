@@ -97,10 +97,12 @@ function addScientist() {
         i = 0;
         evilScientists.scientists.push(newScientist);
         newScientist = {};
-        console.log(evilScientists.scientists);
         allEvilScientists.innerHTML = '';
         scientistCards();
         HighLightScientist();
+        for (var i_2 = 0; i_2 < inputs.length; i_2++) {
+            inputs[i_2].value = '';
+        }
     };
 }
 addScientist();

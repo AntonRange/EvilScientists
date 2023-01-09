@@ -133,10 +133,12 @@ function HighLightScientist() {
       i = 0;
       evilScientists.scientists.push(newScientist);
       newScientist = {};
-      console.log(evilScientists.scientists)
       allEvilScientists.innerHTML = '';
       scientistCards()
       HighLightScientist()
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+      }
     }
   }
   
