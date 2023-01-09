@@ -1,6 +1,9 @@
 
 const allEvilScientists = document.querySelector(".allscientist") as HTMLElement;
 
+let age: number;
+let henchmen: number;
+
 const evilScientists = {
     scientists: [
         {
@@ -50,9 +53,6 @@ function scientistCards() {
 
         for (const key of Object.keys(evilScientists.scientists[i])) {
           const newKey = key.replace(/^./, key[0].toUpperCase());
-          
-
-
           let test = evilScientists.scientists[i][key];
             if (key === "age") {
                 break;
@@ -96,3 +96,32 @@ scientistCards()
   }
   testar()
   
+
+
+
+let newScientist = {
+
+}
+let i = 0;
+function addScientist() {
+
+  const inputs = document.querySelectorAll(".Inputs") as NodeListOf<HTMLInputElement>;
+  const addButton = document.querySelector("#addButton") as HTMLButtonElement;
+
+  addButton.onclick = function() {
+    
+    for (const key of Object.keys(evilScientists.scientists[1])) {
+      
+      const newKey = key.replace(/^./, key[0].toUpperCase());
+
+      newScientist[key] = inputs[i].value
+
+      
+    i++;
+}
+i = 0;
+evilScientists.scientists.push(newScientist)
+newScientist = {}
+}
+};
+addScientist()
