@@ -61,7 +61,6 @@ function HighLightScientist() {
     var _loop_1 = function (i_1) {
         wichCard[i_1].addEventListener('click', function () {
             HighlightedScientist.innerHTML = '';
-            console.log(wichCard[i_1]);
             for (var _i = 0, _a = Object.keys(evilScientists.scientists[i_1]); _i < _a.length; _i++) {
                 var key = _a[_i];
                 var newKey = key.replace(/^./, key[0].toUpperCase());
