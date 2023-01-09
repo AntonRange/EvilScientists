@@ -58,21 +58,21 @@ function scientistCards() {
 }
 scientistCards();
 function testar() {
-    var HighlightedScientist = document.querySelector(".HighlightedScientist");
+    var HighlightedScientist = document.querySelector('.HighlightedScientist');
     var wichCard = document.querySelectorAll('.evilScientistsCard');
     var _loop_1 = function (i_1) {
-        wichCard[i_1].onclick = function () {
+        wichCard[i_1].addEventListener('click', function () {
             HighlightedScientist.innerHTML = '';
             console.log(wichCard[i_1]);
             for (var _i = 0, _a = Object.keys(evilScientists.scientists[i_1]); _i < _a.length; _i++) {
                 var key = _a[_i];
                 var newKey = key.replace(/^./, key[0].toUpperCase());
                 var test2 = evilScientists.scientists[i_1][key];
-                var NewPTag = document.createElement("p");
+                var NewPTag = document.createElement('p');
                 NewPTag.innerHTML = "".concat(newKey, ": ").concat(test2, " ");
                 HighlightedScientist.appendChild(NewPTag);
             }
-        };
+        });
     };
     for (var i_1 = 0; i_1 < wichCard.length; i_1++) {
         _loop_1(i_1);
@@ -88,7 +88,12 @@ function addScientist() {
         for (var _i = 0, _a = Object.keys(evilScientists.scientists[1]); _i < _a.length; _i++) {
             var key = _a[_i];
             var newKey = key.replace(/^./, key[0].toUpperCase());
-            newScientist[key] = inputs[i].value;
+            if (key === "age" || key === "henchmen") {
+                newScientist[key] = Number(inputs[i].value);
+            }
+            else {
+                newScientist[key] = inputs[i].value;
+            }
             i++;
         }
         i = 0;
@@ -96,5 +101,4 @@ function addScientist() {
         newScientist = {};
     };
 }
-;
 addScientist();
