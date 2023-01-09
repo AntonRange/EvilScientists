@@ -34,6 +34,7 @@ const evilScientists = {
             henchmen: 10,
             description: 'Max used his skills in virus research to create a virus that turns everyone infected into monkeys'
         },
+        
     ]
 }
 
@@ -48,13 +49,17 @@ function scientistCards() {
         allEvilScientists.appendChild(scientistSection)
 
         for (const key of Object.keys(evilScientists.scientists[i])) {
+          const newKey = key.replace(/^./, key[0].toUpperCase());
+          
+
+
           let test = evilScientists.scientists[i][key];
             if (key === "age") {
                 break;
             }
 
         const NewPTag = document.createElement("p");
-        NewPTag.innerHTML = `${key}: ${test} `;
+        NewPTag.innerHTML = `${newKey}: ${test} `;
         
         scientistSection.appendChild(NewPTag)
 
@@ -67,41 +72,22 @@ function scientistCards() {
 
 scientistCards()
 
-// Denna funktionen gör så att beroende på vilket monsterCard du klickar på så att du kan edita just den
-// function CardClicker() {
-//   const wichCard = document.querySelectorAll('.evilScientistsCard');
-//   for (const key of wichCard.keys()) {
-      
-//       wichCard[key].onclick = function() {
-//           for (let [key1, key2] of Object.entries(monsterObject.monsters[key])) {
-              
-//               if (key1 == "apperences") {
-//                   for (let k = 0; k < apperence.length; k++) {
-//                       let key1 = Editinput[k].value
-//                       key2[k] = `${apperence[k]}: ${key1}`
-//                   }
-//               }
-//               monsterInformation.innerHTML = '';
-//           }
-//           monsterObject.createMonsters()
-//       }
-//       } 
-//   }
-
-
   function testar() {
-    const currentScientist = document.querySelector(".currentScientist") as HTMLElement;
+    const HighlightedScientist = document.querySelector(".HighlightedScientist") as HTMLElement;
+    
     const wichCard = document.querySelectorAll('.evilScientistsCard') as NodeList;
       for (let i = 0; i < wichCard.length; i++) {
         wichCard[i].onclick = () => {
+          HighlightedScientist.innerHTML = '';
       console.log(wichCard[i])
       for (const key of Object.keys(evilScientists.scientists[i])) {
+        const newKey = key.replace(/^./, key[0].toUpperCase());
         let test2 = evilScientists.scientists[i][key];
           
       const NewPTag = document.createElement("p");
-      NewPTag.innerHTML = `${key}: ${test2} `;
+      NewPTag.innerHTML = `${newKey}: ${test2} `;
       
-      currentScientist.appendChild(NewPTag)
+      HighlightedScientist.appendChild(NewPTag)
       }
   };
 }
