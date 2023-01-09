@@ -1,6 +1,4 @@
-var allEvilScientists = document.querySelector(".allscientist");
-var age;
-var henchmen;
+var allEvilScientists = document.querySelector(".scientistCards");
 var evilScientists = {
     scientists: [
         {
@@ -57,7 +55,7 @@ function scientistCards() {
     }
 }
 scientistCards();
-function testar() {
+function HighLightScientist() {
     var HighlightedScientist = document.querySelector('.HighlightedScientist');
     var wichCard = document.querySelectorAll('.evilScientistsCard');
     var _loop_1 = function (i_1) {
@@ -78,7 +76,7 @@ function testar() {
         _loop_1(i_1);
     }
 }
-testar();
+HighLightScientist();
 var newScientist = {};
 var i = 0;
 function addScientist() {
@@ -99,6 +97,10 @@ function addScientist() {
         i = 0;
         evilScientists.scientists.push(newScientist);
         newScientist = {};
+        console.log(evilScientists.scientists);
+        allEvilScientists.innerHTML = '';
+        scientistCards();
+        HighLightScientist();
     };
 }
 addScientist();

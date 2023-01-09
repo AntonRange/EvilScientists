@@ -1,5 +1,5 @@
 
-const allEvilScientists = document.querySelector(".allscientist") as HTMLElement;
+const allEvilScientists = document.querySelector(".scientistCards") as HTMLElement;
 
 interface Scientist {
   name: string;
@@ -11,7 +11,6 @@ interface Scientist {
 
 interface EvilScientists {
   scientists: Scientist[];
-  
 }
 
 const evilScientists: EvilScientists = {
@@ -55,6 +54,7 @@ const evilScientists: EvilScientists = {
   ],
 };
 
+
 function scientistCards() {
     let i = 0;
 
@@ -86,7 +86,7 @@ function scientistCards() {
 
 scientistCards()
 
-function testar() {
+function HighLightScientist() {
   const HighlightedScientist = document.querySelector('.HighlightedScientist') as HTMLElement;
 
   const wichCard = document.querySelectorAll('.evilScientistsCard') as NodeList;
@@ -107,10 +107,10 @@ function testar() {
     });
   }
 }
-  testar()
+  HighLightScientist()
   
  
-  let newScientist: Scientist = {
+  let newScientist:any= {
     
   };
   let i = 0;
@@ -120,6 +120,7 @@ function testar() {
     const addButton = document.querySelector("#addButton") as HTMLButtonElement;
     
     addButton.onclick = function() {
+
       for (const key of Object.keys(evilScientists.scientists[1])) {
         const newKey = key.replace(/^./, key[0].toUpperCase());
         if (key === "age" || key === "henchmen") {
@@ -132,6 +133,10 @@ function testar() {
       i = 0;
       evilScientists.scientists.push(newScientist);
       newScientist = {};
+      console.log(evilScientists.scientists)
+      allEvilScientists.innerHTML = '';
+      scientistCards()
+      HighLightScientist()
     }
   }
   
